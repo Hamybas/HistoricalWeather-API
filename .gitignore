@@ -1,2 +1,5 @@
 venv
 .idea
+bonus
+/templates/home2.html
+/Translator API.py
