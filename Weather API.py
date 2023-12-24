@@ -1,7 +1,5 @@
 import pandas as pd
 from flask import Flask, render_template
-import pandas
-import numpy as np
 
 
 app = Flask(__name__)
@@ -9,6 +7,7 @@ app = Flask(__name__)
 stations = pd.read_csv('data-small/stations.txt', skiprows=17)
 station_table = stations[["STAID", "STANAME                                 "]]
 station_table = station_table.to_html()
+
 
 @app.route('/')
 def home():
@@ -40,7 +39,6 @@ def one_station_one_year(station, year):
     df['    DATE'] = df['    DATE'].astype(str)
     result = df[df['    DATE'].str.startswith(str(year))].to_dict(orient='records')
     return result
-
 
 
 if __name__ == "__main__" :
